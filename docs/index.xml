@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Documentation on StreamSyncEngage</title><link>https://mach-five-group.github.io/streamsyncengage/docs/</link><description>Recent content in Documentation on StreamSyncEngage</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://mach-five-group.github.io/streamsyncengage/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Introduction</title><link>https://mach-five-group.github.io/streamsyncengage/docs/introduction/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mach-five-group.github.io/streamsyncengage/docs/introduction/</guid><description>&lt;p&gt;StreamSyncEngage (SSE) is a real-time stream synchronization infrastructure layer. It sits between your event sources and your product surfaces — routing, transforming, and delivering events reliably.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Documentation on StreamSyncEngage</title><link>https://streamsyncengage.com/docs/</link><description>Recent content in Documentation on StreamSyncEngage</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://streamsyncengage.com/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Introduction</title><link>https://streamsyncengage.com/docs/introduction/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://streamsyncengage.com/docs/introduction/</guid><description>&lt;p&gt;StreamSyncEngage (SSE) is a real-time stream synchronization infrastructure layer. It sits between your event sources and your product surfaces — routing, transforming, and delivering events reliably.&lt;/p&gt;
 &lt;h2 id="what-sse-does"&gt;What SSE does&lt;/h2&gt;
 &lt;p&gt;SSE handles the infrastructure work that most teams end up building themselves:&lt;/p&gt;
 &lt;ul&gt;
@@ -7,7 +7,7 @@
 &lt;li&gt;&lt;strong&gt;Delivery&lt;/strong&gt; — Push events to web, mobile, and integrations with consistent semantics.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="who-its-for"&gt;Who it&amp;rsquo;s for&lt;/h2&gt;
-&lt;p&gt;SSE is for product and platform teams building event-driven features — live notifications, real-time collaboration, streaming dashboards, and AI agent routing.&lt;/p&gt;</description></item><item><title>Quickstart</title><link>https://mach-five-group.github.io/streamsyncengage/docs/quickstart/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mach-five-group.github.io/streamsyncengage/docs/quickstart/</guid><description>&lt;p&gt;Get SSE running in your project in a few steps.&lt;/p&gt;
+&lt;p&gt;SSE is for product and platform teams building event-driven features — live notifications, real-time collaboration, streaming dashboards, and AI agent routing.&lt;/p&gt;</description></item><item><title>Quickstart</title><link>https://streamsyncengage.com/docs/quickstart/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://streamsyncengage.com/docs/quickstart/</guid><description>&lt;p&gt;Get SSE running in your project in a few steps.&lt;/p&gt;
 &lt;h2 id="1-create-an-app"&gt;1. Create an app&lt;/h2&gt;
 &lt;p&gt;Sign in and create a new App from the dashboard. Each App has its own channel namespace and credentials.&lt;/p&gt;
 &lt;h2 id="2-connect-an-event-source"&gt;2. Connect an event source&lt;/h2&gt;
@@ -22,7 +22,7 @@ Content-Type: application/json
  &amp;#34;payload&amp;#34;: { &amp;#34;order_id&amp;#34;: &amp;#34;abc123&amp;#34; }
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;h2 id="3-subscribe-on-the-client"&gt;3. Subscribe on the client&lt;/h2&gt;
-&lt;p&gt;Use the SSE client library or a plain WebSocket to subscribe to a channel:&lt;/p&gt;</description></item><item><title>Concepts</title><link>https://mach-five-group.github.io/streamsyncengage/docs/concepts/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mach-five-group.github.io/streamsyncengage/docs/concepts/</guid><description>&lt;h2 id="channels"&gt;Channels&lt;/h2&gt;
+&lt;p&gt;Use the SSE client library or a plain WebSocket to subscribe to a channel:&lt;/p&gt;</description></item><item><title>Concepts</title><link>https://streamsyncengage.com/docs/concepts/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://streamsyncengage.com/docs/concepts/</guid><description>&lt;h2 id="channels"&gt;Channels&lt;/h2&gt;
 &lt;p&gt;A channel is a named stream of events within an App. Clients subscribe to channels to receive events. Channels are lightweight — you can create as many as your product needs.&lt;/p&gt;
 &lt;h2 id="routing"&gt;Routing&lt;/h2&gt;
 &lt;p&gt;Routing rules determine which events are sent to which channels and recipients. Rules are defined in the dashboard or via the API and evaluated on every ingest call.&lt;/p&gt;
@@ -33,7 +33,7 @@ Content-Type: application/json
 &lt;li&gt;Recipient attributes&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="transforms"&gt;Transforms&lt;/h2&gt;
-&lt;p&gt;A transform modifies an event&amp;rsquo;s payload before delivery. Common uses:&lt;/p&gt;</description></item><item><title>API Reference</title><link>https://mach-five-group.github.io/streamsyncengage/docs/api-reference/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mach-five-group.github.io/streamsyncengage/docs/api-reference/</guid><description>&lt;h2 id="base-url"&gt;Base URL&lt;/h2&gt;
+&lt;p&gt;A transform modifies an event&amp;rsquo;s payload before delivery. Common uses:&lt;/p&gt;</description></item><item><title>API Reference</title><link>https://streamsyncengage.com/docs/api-reference/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://streamsyncengage.com/docs/api-reference/</guid><description>&lt;h2 id="base-url"&gt;Base URL&lt;/h2&gt;
 &lt;pre tabindex="0"&gt;&lt;code&gt;https://api.streamsyncengage.com/v1
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;All requests require an &lt;code&gt;Authorization: Bearer &amp;lt;api_key&amp;gt;&lt;/code&gt; header.&lt;/p&gt;
 &lt;h2 id="ingest-an-event"&gt;Ingest an event&lt;/h2&gt;
