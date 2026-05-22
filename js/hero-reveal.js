@@ -39,6 +39,17 @@
     return { tokens: tokens, cursor: cursor };
   }
 
+  function revealNotifications(hero) {
+    var scope = hero.closest("section") || document;
+    var targets = scope.querySelectorAll(".m5-hero-notification");
+    if (!targets.length) return;
+    window.setTimeout(function () {
+      targets.forEach(function (el) {
+        el.classList.add("is-revealed");
+      });
+    }, 320);
+  }
+
   function startTyping(hero) {
     var data = tokenize(hero);
     if (!data || !data.tokens.length) {
@@ -70,6 +81,7 @@
       if (i >= tokens.length) {
         // Release reserved space once typed content fully occupies the same layout.
         hero.style.minHeight = "";
+        revealNotifications(hero);
         return;
       }
 
