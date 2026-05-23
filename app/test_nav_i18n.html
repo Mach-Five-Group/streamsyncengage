@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigation i18n Test</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #1a1a1a;
+      color: #e4e4e4;
+      padding: 2rem;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      color: #edba08;
+      margin-bottom: 2rem;
+    }
+
+    .controls {
+      background: #242424;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      border: 1px solid #3a3a3a;
+    }
+
+    .controls label {
+      display: inline-block;
+      margin-right: 1rem;
+      color: #a8a8a8;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    select {
+      background: #2d2d2d;
+      color: #e4e4e4;
+      border: 1px solid #3a3a3a;
+      padding: 8px 12px;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+      margin-right: 2rem;
+    }
+
+    select:focus {
+      outline: none;
+      border-color: #edba08;
+      box-shadow: 0 0 0 2px rgba(237, 186, 8, 0.2);
+    }
+
+    .nav-display {
+      background: #242424;
+      padding: 1.5rem;
+      border-radius: 8px;
+      border: 1px solid #3a3a3a;
+    }
+
+    .nav-item {
+      background: #2d2d2d;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 4px;
+      border-left: 3px solid #92a8d1;
+    }
+
+    .nav-item.secondary {
+      margin-left: 2rem;
+      border-left-color: #edba08;
+    }
+
+    .nav-token {
+      color: #7BC4C4;
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      display: inline-block;
+      background: #1a1a1a;
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 1rem;
+    }
+
+    .nav-caption {
+      color: #e4e4e4;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .nav-tagline {
+      color: #a8a8a8;
+      font-size: 13px;
+      margin-top: 0.5rem;
+    }
+
+    .debug {
+      background: #1a1a1a;
+      padding: 1rem;
+      margin-top: 1rem;
+      border-radius: 4px;
+      border: 1px solid #3a3a3a;
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      color: #7BC4C4;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 3px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-left: 0.5rem;
+    }
+
+    .badge.admin {
+      background: #DD4124;
+      color: white;
+    }
+
+    .badge.user {
+      background: #009473;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🌐 Navigation i18n Integration Test</h1>
+
+    <div class="controls">
+      <label for="appSelect">Application:</label>
+      <select id="appSelect">
+        <option value="client-saas">SSE SaaS Client</option>
+        <option value="SSE_console_applet">SSE Console Applet</option>
+        <option value="Client_Property_Sandbox_Emulator">Sandbox Emulator</option>
+      </select>
+
+      <label for="langSelect">Language:</label>
+      <select id="langSelect">
+        <option value="en">English</option>
+        <option value="es">Español</option>
+        <option value="zh-Hans">中文</option>
+      </select>
+    </div>
+
+    <div class="nav-display" id="navDisplay">
+      <!-- Navigation items will be rendered here -->
+    </div>
+
+    <div class="debug" id="debugOutput"></div>
+  </div>
+
+  <script type="module">
+    import { NavMetaManager } from '../src/../../shared/meta/meta_nav.js';
+    import { MicrocopyManager } from '../src/../../shared/meta_microcopy_i18n.js';
+
+    // Initialize context
+    MicrocopyManager.setContext({
+      buildMode: 'LOCAL',
+      product: 'SSE',
+      whitelabel: 'M5T',
+      lang: 'en'
+    });
+
+    const appSelect = document.getElementById('appSelect');
+    const langSelect = document.getElementById('langSelect');
+    const navDisplay = document.getElementById('navDisplay');
+    const debugOutput = document.getElementById('debugOutput');
+
+    // Set initial app token
+    NavMetaManager.setAppToken(appSelect.value);
+
+    function renderNavigation() {
+      const primaryNav = NavMetaManager.getPrimaryNav();
+
+      navDisplay.innerHTML = '';
+
+      primaryNav.forEach(item => {
+        // Render primary item
+        const primaryDiv = document.createElement('div');
+        primaryDiv.className = 'nav-item';
+        primaryDiv.innerHTML = `
+          <span class="nav-token">${item.token}</span>
+          <span class="nav-caption">${item.caption}</span>
+          ${item.admin_role ? '<span class="badge admin">Admin</span>' : '<span class="badge user">User</span>'}
+          <div class="nav-tagline">${item.tagline}</div>
+        `;
+        navDisplay.appendChild(primaryDiv);
+
+        // Render secondary items
+        if (item.secondary && item.secondary.length > 0) {
+          item.secondary.forEach(secItem => {
+            const secDiv = document.createElement('div');
+            secDiv.className = 'nav-item secondary';
+            secDiv.innerHTML = `
+              <span class="nav-token">${secItem.token}</span>
+              <span class="nav-caption">${secItem.caption}</span>
+              ${secItem.admin_role ? '<span class="badge admin">Admin</span>' : '<span class="badge user">User</span>'}
+              <div class="nav-tagline">${secItem.tagline}</div>
+            `;
+            navDisplay.appendChild(secDiv);
+          });
+        }
+      });
+
+      updateDebugOutput(primaryNav);
+    }
+
+    function updateDebugOutput(nav) {
+      const context = MicrocopyManager.getContext();
+      debugOutput.innerHTML = `
+<strong>Current Context:</strong>
+${JSON.stringify(context, null, 2)}
+
+<strong>Navigation Sample (first item):</strong>
+${JSON.stringify(nav[0], null, 2)}
+
+<strong>Available Languages:</strong>
+${JSON.stringify(MicrocopyManager.getAvailableLanguages(), null, 2)}
+      `.trim();
+    }
+
+    // Handle app change
+    appSelect.addEventListener('change', () => {
+      NavMetaManager.setAppToken(appSelect.value);
+      renderNavigation();
+    });
+
+    // Handle language change - SIMULATE I18nController behavior
+    langSelect.addEventListener('change', () => {
+      const newLang = langSelect.value;
+
+      // Update MicrocopyManager context
+      MicrocopyManager.setContext({ lang: newLang });
+
+      // Fire the same event that I18nController.setLanguage() fires
+      const event = new CustomEvent('language-changed', {
+        bubbles: true,
+        composed: true,
+        detail: { lang: newLang }
+      });
+      document.dispatchEvent(event);
+
+      console.log('[Test] Language changed to:', newLang, '- Event fired');
+
+      // Re-render this test page
+      renderNavigation();
+    });
+
+    // Listen for language-changed event (to verify it works)
+    document.addEventListener('language-changed', (e) => {
+      console.log('[Test] Received language-changed event:', e.detail);
+    });
+
+    // Initial render
+    renderNavigation();
+  </script>
+</body>
+</html>
