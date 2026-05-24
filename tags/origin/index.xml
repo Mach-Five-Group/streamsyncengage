@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Origin on Stream Sync Engage</title>
+    <link>http://localhost:59046/tags/origin/</link>
+    <description>Recent content in Origin on Stream Sync Engage</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 20 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:59046/tags/origin/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Why we built Stream Sync Engage</title>
+      <link>http://localhost:59046/blog/why-we-built-stream-sync-engage/</link>
+      <pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:59046/blog/why-we-built-stream-sync-engage/</guid>
+      <description>&lt;p&gt;Every product team we worked with had the same shape of problem. Marketing wanted to ship a survey. Product wanted to launch a guided tour. Customer success wanted a quick announcement. All three of those things should have taken an afternoon. None of them did.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-kept-happening&#34;&gt;What kept happening&lt;/h2&gt;&#xA;&lt;p&gt;The path was always the same. A short Slack thread about the engagement turned into a Jira ticket. The Jira ticket turned into a small frontend change. The small frontend change waited for the next release. The release got bundled with three other changes, one of which broke staging. The engagement shipped two weeks late, after the moment had passed.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
