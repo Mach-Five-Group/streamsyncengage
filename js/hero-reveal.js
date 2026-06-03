@@ -61,11 +61,10 @@
     var cursor = data.cursor;
     var i = 0;
     var wordIndex = 0;
-    var activeTextNode = null;
     var words = null;
-    var minDelayMs = 28;
-    var maxDelayMs = 72;
-    var punctuationDelayMs = 135;
+    var minDelayMs = 42;
+    var maxDelayMs = 58;
+    var punctuationDelayMs = 80;
 
     hero.classList.add("is-typing");
 
@@ -87,30 +86,33 @@
 
       var token = tokens[i];
       if (token.type === "inline") {
-        insertBeforeCursor(token.value);
+        var inlineNode = token.value;
+        inlineNode.classList.add("m5-hero-word");
+        insertBeforeCursor(inlineNode);
         i += 1;
         wordIndex = 0;
         words = null;
-        activeTextNode = null;
-        window.setTimeout(tick, 55);
+        window.setTimeout(tick, 50);
         return;
       }
 
-      if (!activeTextNode) {
-        activeTextNode = document.createTextNode("");
-        insertBeforeCursor(activeTextNode);
+      if (!words) {
         words = token.value.match(/\S+\s*/g) || [];
       }
 
       var chunk = words[wordIndex] || "";
-      activeTextNode.textContent += chunk;
+      if (chunk) {
+        var wordSpan = document.createElement("span");
+        wordSpan.className = "m5-hero-word";
+        wordSpan.textContent = chunk;
+        insertBeforeCursor(wordSpan);
+      }
       wordIndex += 1;
 
       if (wordIndex >= words.length) {
         i += 1;
         wordIndex = 0;
         words = null;
-        activeTextNode = null;
       }
 
       var hasPunctuationPause = /[.,;:!?]\s*$/.test(chunk);
