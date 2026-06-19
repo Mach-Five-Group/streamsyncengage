@@ -15,8 +15,20 @@ let neodigmOptCustom = { mvvLegit:true, MVV_SPLASH_2_SIGNIN:false, N55_DEBUG_LOG
         </script>
         <!-- ##turnaround## -->
         <script src="https://arcanus55.github.io/neodigm55/dist/neodigm55__v5_0.js"></script>
-    <script type="module" crossorigin src="assets/index_1c1b4feb.js"></script>
-    <link rel="stylesheet" crossorigin href="assets/index_1c1b4feb.css">
+
+    <!-- StreamSyncEngage SSE Connection -->
+    <script>
+      (function() {
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://streamsyncengage-saas.onrender.com/m5t/v5/coreSnippet?appguid=62750928-a47e-46d0-944a-000046012431&ts=' + new Date().toISOString();
+        var firstScript = document.getElementsByTagName('script')[0];
+        firstScript.parentNode.insertBefore(script, firstScript);
+      })();
+    </script>
+
+    <script type="module" crossorigin src="assets/index_8c65329d.js"></script>
+    <link rel="stylesheet" crossorigin href="assets/index_8c65329d.css">
   </head>
   <body style="background-color: #181818;">
     <div id="app" data-sync-env="DEV" data-sync-theme="dark" data-sync-motif="brand" data-sync-lang="en"></div>
